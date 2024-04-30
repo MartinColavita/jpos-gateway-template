@@ -37,7 +37,6 @@ public class DemoParticipant extends TxnSupport implements Serializable {
         } catch (ISOException e) {
             throw new RuntimeException(e);
         }
-        ctx.put("RESPONSE",isoMsg);
         return PREPARED;
     }
 

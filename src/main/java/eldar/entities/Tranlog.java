@@ -22,6 +22,7 @@ public class Tranlog {
     private String panNumber;
 
 
+
     public Tranlog (String mti, String panNumber) {
         this.mti = mti;
         this.panNumber = panNumber;

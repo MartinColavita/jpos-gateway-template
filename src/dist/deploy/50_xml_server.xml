@@ -6,6 +6,13 @@
             type="server"
             logger="Q2">
         <property name="timeout" value="180000"/>
+        <filter class="eldar.filters.DemoIncomingFilter" direction="incoming">
+            <property name="codigo-aprobado" value="0000" />
+            <property name="codigo-denegado" value="9999" />
+            <property name="bin-unica" value="606396" />
+        </filter>
+        <filter class="eldar.filters.DemoOutgoingFilter" direction="outgoing">
+        </filter>
     </channel>
     <request-listener class="org.jpos.iso.IncomingListener" logger="Q2"
                   realm="incoming-request-listener">
