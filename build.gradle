@@ -15,7 +15,21 @@ repositories {
 }
 
 dependencies {
+
     implementation 'org.jpos:jpos:2.1.8-SNAPSHOT'
+    implementation 'org.jpos.ee:jposee-server-simulator:2.2.10-SNAPSHOT'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0-rc1'
+    implementation 'org.jpos.ee:jposee-txn:2.2.8'
+    implementation 'org.jpos.ee:jposee-core:2.2.8'
+    implementation 'org.hibernate:hibernate-ehcache:5.5.4.Final'
+    implementation 'org.jpos.ee:jposee-dbsupport:2.2.8'
+    implementation 'com.oracle.database.jdbc:ojdbc10:19.22.0.0'
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation 'com.mysql:mysql-connector-j:8.3.0'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+
+
 }
 
 apply from: 'jpos-app.gradle'

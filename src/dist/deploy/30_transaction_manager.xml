@@ -1,0 +1,17 @@
+<txnmgr class="org.jpos.transaction.TransactionManager" logger="Q2">
+    <property name="queue" value="TXNMGR"/>
+    <property name="sessions" value="2"/>
+    <property name="max-sessions" value="128"/>
+    <property name="debug" value="true"/>
+
+
+    <participant class="org.jpos.transaction.Open" logger="Q2" realm="open-db">
+        <property name="checkpoint" value="open" />
+        <property name="timeout" value="30000" />
+    </participant>
+    <participant class="eldar.participants.DemoParticipant" logger="Q2" realm="demo-participant"/>
+    <participant class="org.jpos.transaction.Close" logger="Q2" realm="close-db"/>
+    <participant class="org.jpos.transaction.participant.QueryHost" logger="Q2" realm="query-host"/>
+    <participant class="org.jpos.transaction.participant.SendResponse" logger="Q2" realm="send-response"/>
+</txnmgr>
+

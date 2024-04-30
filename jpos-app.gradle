@@ -261,3 +261,10 @@ task viewTests (description: 'Open Test Reports') {
     }
 }
 
+
+task debug( dependsOn: 'installApp', type: Exec ) {
+    workingDir installDir
+    commandLine 'java','-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005','-jar', archiveJarName
+}
+
+
