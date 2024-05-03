@@ -7,7 +7,7 @@
     </channel>
     <in>jpos-send</in>
     <out>jpos-receive</out>
-    <reconnect-delay>100000</reconnect-delay>
+    <reconnect-delay>1</reconnect-delay>
 </channel-adaptor>
 
 

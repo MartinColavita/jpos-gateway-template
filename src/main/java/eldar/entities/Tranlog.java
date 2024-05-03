@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Table(name = "tranlog")
-@NoArgsConstructor
 public class Tranlog {
 
     @Id
@@ -21,11 +20,18 @@ public class Tranlog {
     @Column(name = "panNumber",nullable = false)
     private String panNumber;
 
+    @Column(name = "responseCode", nullable = false)
+    private String responseCode;
 
 
-    public Tranlog (String mti, String panNumber) {
+    public Tranlog(){
+
+    }
+
+    public Tranlog (String mti, String panNumber,String responseCode) {
         this.mti = mti;
         this.panNumber = panNumber;
+        this.responseCode = responseCode;
     }
 
 }

@@ -9,9 +9,11 @@ import org.jpos.iso.ISOMsg;
 import org.jpos.util.LogEvent;
 
 public class DemoOutgoingFilter implements ISOFilter, Configurable {
-    @Override
-    public void setConfiguration(Configuration configuration) throws ConfigurationException {
+    private String codigoAprobado;
 
+    @Override
+    public void setConfiguration(Configuration cfg) throws ConfigurationException {
+        codigoAprobado = cfg.get("codigo-aprobado");
     }
 
     @Override
@@ -19,8 +21,12 @@ public class DemoOutgoingFilter implements ISOFilter, Configurable {
         evt.addMessage("--- filtered message (xml_outgoing) --");
         evt.addMessage(isoMsg);
         ISOMsg isoMsgOut = (ISOMsg) isoMsg.clone();
-        isoMsgOut.unset(22);
-        isoMsgOut.unset(40);
+        // A modo de prueba, si la transaccion aprobada quitamos el campo 22 y 40 de la respuesta al cliente tcp
+        if(isoMsgOut.hasField(39) && isoMsgOut.getString("39").equals(codigoAprobado)){
+            isoMsgOut.unset(22);
+            isoMsgOut.unset(40);
+        }
+        // De otra manera lo devuelve con los respectivos campos
         return isoMsgOut;
     }
 }

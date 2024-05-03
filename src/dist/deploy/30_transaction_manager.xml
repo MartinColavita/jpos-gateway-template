@@ -9,8 +9,8 @@
         <property name="checkpoint" value="open" />
         <property name="timeout" value="30000" />
     </participant>
-    <participant class="eldar.participants.DemoParticipant" logger="Q2" realm="demo-participant"/>
     <participant class="org.jpos.transaction.participant.QueryHost" logger="Q2" realm="query-host"/>
+    <participant class="eldar.participants.SaveTranlogParticipant" logger="Q2" realm="save-tranlog-participant"/>
     <participant class="org.jpos.transaction.Close" logger="Q2" realm="close-db"/>
     <participant class="org.jpos.transaction.participant.SendResponse" logger="Q2" realm="send-response"/>
 </txnmgr>
